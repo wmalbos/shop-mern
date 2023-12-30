@@ -1,9 +1,6 @@
-const {INFOS_MESSAGES, ENVIROMENTS} = require("./utils/constants");
 const logger = require('./utils/logger');
-const shutdownHandlers = require('./config/serverShutdownHandlers');
 const config = require("./config/config");
-
-// Initialize the application
+const shutdownHandlers = require('./config/serverShutdownHandlers');
 const app = require('./config/startup');
 
 // Start the server
@@ -15,4 +12,3 @@ const server = app.listen(config.port, () => {
 shutdownHandlers.init(server);
 
 module.exports = server;
-
