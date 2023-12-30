@@ -9,7 +9,7 @@ const app = express();
 // Load .env variables
 dotEnv.config();
 
-const PORT = process.env.PORT ||  3001;
+const PORT =  process.env.NODE_ENV === 'test'?  process.env.PORT_TEST : process.env.PORT;
 
 dbConnection();
 

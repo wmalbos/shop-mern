@@ -1,9 +1,6 @@
-const {
-    getAllController
-} = require ("../../controllers/shop/product.controller");
-
 const router = require("express").Router();
+const products =  require ("../../controllers/shop/product.controller");
 
-router.get("/", getAllController);
+router.get("/", products.getAllController);
 
 module.exports = router;
