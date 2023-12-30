@@ -12,6 +12,10 @@ const CategorySchema = new Mongooose.Schema({
             },
             message: props => `${props.value} n'est pas un nom de catégorie valide. Le nom doit commencer par une lettre majuscule et contenir uniquement des lettres et des chiffres.`
         },
+        parent: {
+            type: Mongoose.Schema.Types.ObjectId,
+            ref: 'Category'
+        }
     },
 }, {
     timestamps: true
