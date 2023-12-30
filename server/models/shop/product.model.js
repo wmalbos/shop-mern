@@ -1,6 +1,6 @@
-const Mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-const VariantSchema = new Mongoose.Schema({
+const VariantSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -14,7 +14,7 @@ const VariantSchema = new Mongoose.Schema({
     }],
 });
 
-const ProductSchema = new Mongoose.Schema({
+const ProductSchema = new mongoose.Schema({
     SKU: {
         type: String,
         required: true,
@@ -38,7 +38,7 @@ const ProductSchema = new Mongoose.Schema({
         required: true
     },
     category: {
-        type: Mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Category'
     },
     priceHT: {
@@ -62,6 +62,6 @@ const ProductSchema = new Mongoose.Schema({
     timestamps: true
 });
 
-const ProductModel = Mongoose.model('Product', ProductSchema);
+const ProductModel = mongoose.model('Product', ProductSchema);
 
 module.exports = ProductModel;

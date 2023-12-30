@@ -1,6 +1,6 @@
-const Mongooose = require('mongoose');
+const mongoose = require('mongoose');
 
-const CategorySchema = new Mongooose.Schema({
+const CategorySchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -13,7 +13,7 @@ const CategorySchema = new Mongooose.Schema({
             message: props => `${props.value} n'est pas un nom de catégorie valide. Le nom doit commencer par une lettre majuscule et contenir uniquement des lettres et des chiffres.`
         },
         parent: {
-            type: Mongoose.Schema.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'Category'
         }
     },
@@ -21,6 +21,6 @@ const CategorySchema = new Mongooose.Schema({
     timestamps: true
 });
 
-const CategoryModel = Mongooose.model('Category', CategorySchema);
+const CategoryModel = mongoose.model('Category', CategorySchema);
 
 module.exports = CategoryModel;

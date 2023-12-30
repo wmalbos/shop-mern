@@ -1,7 +1,7 @@
-const Category = require('../../models/shop/category.model');
+const Address = require('../../models/shop/address.model');
 const logger = require('../../utils/logger');
 
-class CategoryService {
+class AddressService {
     async getAll(
         pageNum = 1,
         pageSize = 10,
@@ -13,16 +13,16 @@ class CategoryService {
         pageSize = Number.isInteger(pageSize) && pageSize > 0 ? pageSize : 10;
 
         try {
-            const categories = await Category.find(filter)
+            const addresses = await Address.find(filter)
                 .sort(sort)
                 .skip((pageNum - 1) * pageSize)
                 .limit(pageSize);
 
-            const totalCategories = await Category.countDocuments({});
+            const totalAddresses = await Address.countDocuments({});
 
             return {
-                categories,
-                total: totalCategories
+                addresses,
+                total: totalAddresses
             };
         } catch (err) {
             logger.error(err)
@@ -31,4 +31,4 @@ class CategoryService {
     }
 }
 
-module.exports = new CategoryService();
+module.exports = new AddressService();

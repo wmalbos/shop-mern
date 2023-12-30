@@ -1,7 +1,7 @@
-const Category = require('../../models/shop/category.model');
+const Customer = require('../../models/shop/customer.model');
 const logger = require('../../utils/logger');
 
-class CategoryService {
+class CustomerService {
     async getAll(
         pageNum = 1,
         pageSize = 10,
@@ -13,16 +13,16 @@ class CategoryService {
         pageSize = Number.isInteger(pageSize) && pageSize > 0 ? pageSize : 10;
 
         try {
-            const categories = await Category.find(filter)
+            const customers = await Customer.find(filter)
                 .sort(sort)
                 .skip((pageNum - 1) * pageSize)
                 .limit(pageSize);
 
-            const totalCategories = await Category.countDocuments({});
+            const totalCustomers = await Customer.countDocuments({});
 
             return {
-                categories,
-                total: totalCategories
+                customers,
+                total: totalCustomers
             };
         } catch (err) {
             logger.error(err)
@@ -31,4 +31,4 @@ class CategoryService {
     }
 }
 
-module.exports = new CategoryService();
+module.exports = new CustomerService();

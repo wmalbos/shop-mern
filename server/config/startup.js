@@ -27,6 +27,11 @@ app.get('/', (req, res) => {
 
 app.use('/categories', require('../routes/shop/category.route'));
 app.use('/products', require('../routes/shop/product.route'));
+app.use('/customers', require('../routes/shop/customer.route'));
+app.use('/addresses', require('../routes/shop/address.route'));
+app.use('/invoices', require('../routes/shop/invoice.route'));
+app.use('/orders', require('../routes/shop/order.route'));
+app.use('/discounts', require('../routes/shop/discount.route'));
 
 // 404 Error Handler
 app.use((req, res, next) => {

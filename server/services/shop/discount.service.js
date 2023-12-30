@@ -1,7 +1,7 @@
-const Category = require('../../models/shop/category.model');
+const Discount = require('../../models/shop/invoice.model');
 const logger = require('../../utils/logger');
 
-class CategoryService {
+class DiscountService {
     async getAll(
         pageNum = 1,
         pageSize = 10,
@@ -13,16 +13,16 @@ class CategoryService {
         pageSize = Number.isInteger(pageSize) && pageSize > 0 ? pageSize : 10;
 
         try {
-            const categories = await Category.find(filter)
+            const discounts = await Discount.find(filter)
                 .sort(sort)
                 .skip((pageNum - 1) * pageSize)
                 .limit(pageSize);
 
-            const totalCategories = await Category.countDocuments({});
+            const totalDiscounts = await Discount.countDocuments({});
 
             return {
-                categories,
-                total: totalCategories
+                discounts,
+                total: totalDiscounts
             };
         } catch (err) {
             logger.error(err)
@@ -31,4 +31,4 @@ class CategoryService {
     }
 }
 
-module.exports = new CategoryService();
+module.exports = new DiscountService();

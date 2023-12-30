@@ -1,6 +1,6 @@
-const Mongooose = require('mongoose');
+const mongoose = require('mongoose');
 
-const DiscountSchema = new Mongooose.Schema({
+const DiscountSchema = new mongoose.Schema({
     code: {
         type: String,
         required: true
@@ -31,6 +31,6 @@ const DiscountSchema = new Mongooose.Schema({
     timestamps: true
 });
 
-const DiscountModel = Mongooose.model('Discount', DiscountSchema);
+const DiscountModel = mongoose.model('Discount', DiscountSchema);
 
 module.exports = DiscountModel;

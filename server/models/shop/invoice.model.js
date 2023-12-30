@@ -1,8 +1,8 @@
-const Mongooose = require('mongoose');
+const mongoose = require('mongoose');
 
 const InvoiceItemSchema = new mongoose.Schema({
     product: {
-        type: Mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Product',
         required: true
     },
@@ -48,7 +48,7 @@ const InvoiceSchema = new mongoose.Schema({
         required: true
     },
     order: {
-        type: Mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Order',
         required: true
     },
@@ -83,12 +83,12 @@ const InvoiceSchema = new mongoose.Schema({
         default: Date.now
     },
     billingAddress: {
-        type: Mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Address',
         required: true
     },
     shippingAddress: {
-        type: Mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Address',
         required: true
     }
@@ -96,6 +96,6 @@ const InvoiceSchema = new mongoose.Schema({
     timestamps: true
 });
 
-const InvoiceModel = Mongooose.model('Invoice', InvoiceSchema);
+const InvoiceModel = mongoose.model('Invoice', InvoiceSchema);
 
 module.exports = InvoiceModel;

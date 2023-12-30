@@ -1,8 +1,8 @@
-const Mongooose = require('mongoose');
+const mongoose = require('mongoose');
 
 const OrderItemSchema = new mongoose.Schema({
     product: {
-        type: Mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Product',
         required: true
     },
@@ -41,9 +41,9 @@ const OrderItemSchema = new mongoose.Schema({
     }
 });
 
-const OrderSchema = new Mongooose.Schema({
+const OrderSchema = new mongoose.Schema({
     user: {
-        type: Mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Customer',
         required: true
     },
@@ -54,12 +54,12 @@ const OrderSchema = new Mongooose.Schema({
         default: 'pending'
     },
     shippingAddress: {
-        type: Mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Address',
         required: true
     },
     billingAddress: {
-        type: Mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Address'
     },
     totalHT: {
@@ -85,6 +85,6 @@ const OrderSchema = new Mongooose.Schema({
     timestamps: true
 });
 
-const OrderModel = Mongooose.model('Order', OrderSchema);
+const OrderModel = mongoose.model('Order', OrderSchema);
 
 module.exports = OrderModel;

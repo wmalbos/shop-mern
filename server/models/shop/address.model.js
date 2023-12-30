@@ -1,8 +1,8 @@
-const Mongooose = require('mongoose');
+const mongoose = require('mongoose');
 
-const AddressSchema = new Mongooose.Schema({
+const AddressSchema = new mongoose.Schema({
     user: {
-        type: Mongooose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Customer',
         required: true
     },
@@ -45,6 +45,6 @@ const AddressSchema = new Mongooose.Schema({
     timestamps: true
 });
 
-const AddressModel = Mongooose.model('Address', AddressSchema);
+const AddressModel = mongoose.model('Address', AddressSchema);
 
 module.exports = AddressModel;
