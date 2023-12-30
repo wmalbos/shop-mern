@@ -25,6 +25,8 @@ app.get('/', (req, res) => {
     res.send("Silence is golden.");
 });
 
+app.use('/auth', require('../routes/auth/auth.route'));
+app.use('/users', require('../routes/auth/user.route'));
 app.use('/categories', require('../routes/shop/category.route'));
 app.use('/products', require('../routes/shop/product.route'));
 app.use('/customers', require('../routes/shop/customer.route'));
