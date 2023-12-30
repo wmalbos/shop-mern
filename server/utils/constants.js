@@ -8,12 +8,18 @@ module.exports = {
         NOT_FOUND: 404,
         SERVER_ERROR: 500,
     },
+    ENVIROMENTS: {
+        DEVELOPMENT: 'development',
+        PRODUCTION: 'production',
+        TEST: 'test',
+    },
     ERROR_MESSAGES : {
         NOT_FOUND : 'Entity not found!',
         SERVER_ERROR: 'An error occurred on the server',
         ENDPOINTS_NOT_FOUND: 'Endpoints not found!',
     },
     INFOS_MESSAGES : {
+      ENVIROMENT: (env) => `Enviroment: ${env}`,
       SERVER_SHUTTING_DOWN:'Received kill signal, shutting down server...',
       SERVER_SHUTDOWN: 'Server is shut down...',
     },

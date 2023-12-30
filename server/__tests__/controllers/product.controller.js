@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../../index'); // chemin vers votre fichier app.js
+const app = require('../../server'); // chemin vers votre fichier app.js
 const productService = require('../../services/shop/product.service');
 
 jest.mock('../../services/shop/product.service'); // simuler le service produit
