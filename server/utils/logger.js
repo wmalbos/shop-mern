@@ -1,5 +1,6 @@
 const winston = require('winston');
 const DailyRotateFile = require('winston-daily-rotate-file');
+const {ENVIROMENTS} = require("./constants");
 
 const { combine, timestamp, printf, errors, json } = winston.format;
 
@@ -16,7 +17,7 @@ const customFormat = printf(({ level, message, timestamp, stack, ...metadata }) 
 
 const options = {
     console: {
-        level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
+        level: process.env.NODE_ENV === ENVIROMENTS.DEVELOPMENT ? 'debug' : 'info',
         handleExceptions: true,
         format: combine(
             winston.format.colorize(),

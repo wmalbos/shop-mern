@@ -19,7 +19,6 @@ module.exports = {
         ENDPOINTS_NOT_FOUND: 'Endpoints not found!',
     },
     INFOS_MESSAGES : {
-      ENVIROMENT: (env) => `Enviroment: ${env}`,
       SERVER_SHUTTING_DOWN:'Received kill signal, shutting down server...',
       SERVER_SHUTDOWN: 'Server is shut down...',
     },

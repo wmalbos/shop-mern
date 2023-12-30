@@ -25,11 +25,12 @@ app.get('/', (req, res) => {
     res.send("Silence is golden.");
 });
 
+app.use('/categories', require('../routes/shop/category.route'));
 app.use('/products', require('../routes/shop/product.route'));
 
 // 404 Error Handler
 app.use((req, res, next) => {
-    res.status(HttpStatus.NOT_FOUND).json({
+    res.status(HTTP_STATUS.NOT_FOUND).json({
         error: {
             msg: ERROR_MESSAGES.ENDPOINTS_NOT_FOUND
         }
@@ -38,14 +39,12 @@ app.use((req, res, next) => {
 
 // Centralized Error Handler
 app.use((err, req, res, next) => {
-    if (err instanceof CustomError) {
-        return res.status(err.status).json({ message: err.message });
-    }
+    //if (err instanceof CustomError) {
+    //    return res.status(err.status).json({ message: err.message });
+    //}
 
     logger.error(err.stack)
     return res.status(err.status || HTTP_STATUS.SERVER_ERROR).json({ message: err.message || ERROR_MESSAGES.SERVER_ERROR });
 })
-
-
 
 module.exports = app;

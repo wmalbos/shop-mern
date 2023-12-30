@@ -1,7 +1,7 @@
-const ENVIROMENTS = require("../utils/constants");
+const ENVIROMENTS = require("../utils/constants").ENVIROMENTS;
 
 const config = {
-    port: process.env.NODE_ENV === ENVIROMENTS.TEST ? process.env.PORT_TEST : process.env.PORT
+    PORT: process.env.NODE_ENV === ENVIROMENTS.TEST ? process.env.PORT_TEST : process.env.PORT
 };
 
 module.exports = config;

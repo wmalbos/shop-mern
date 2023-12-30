@@ -13,8 +13,8 @@ const ProductSchema = new Mongoose.Schema({
         trim: true,
         maxlength: 100,
         validate: {
-            validator: function(v) {
-                return /^[A-Z][a-zA-Z0-9]*$/.test(v);
+            validator: function(str) {
+                return /^[A-Z][a-zA-Z0-9]*$/.test(str);
             },
             message: props => `${props.value} n'est pas un nom de produit valide. Le nom doit commencer par une lettre majuscule et contenir uniquement des lettres et des chiffres.`
         },

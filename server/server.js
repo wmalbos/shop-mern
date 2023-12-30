@@ -1,11 +1,11 @@
 const logger = require('./utils/logger');
-const config = require("./config/config");
 const shutdownHandlers = require('./config/serverShutdownHandlers');
 const app = require('./config/startup');
+const config = require("./config/config");
 
 // Start the server
-const server = app.listen(config.port, () => {
-    logger.info(`Server listening on ${config.port}`);
+const server = app.listen(config.PORT, () => {
+    logger.info(`Server listening on ${config.PORT}`);
 });
 
 // Setup shut down error handlers
